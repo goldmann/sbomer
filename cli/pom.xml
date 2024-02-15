@@ -43,6 +43,11 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.jboss.sbomer</groupId>
+      <artifactId>sbomer-native-provider-cli</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- <dependency>
       <groupId>org.jboss.pnc.build.finder</groupId>
       <artifactId>core</artifactId>
       <version>${version.build-finder}</version>
@@ -56,7 +61,7 @@
           <artifactId>logback-core</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-scheduler</artifactId>

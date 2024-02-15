@@ -47,6 +47,7 @@ import org.jboss.pnc.build.finder.koji.KojiBuild;
 
 import com.redhat.red.build.koji.KojiClientException;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -54,6 +55,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @ApplicationScoped
+@RegisterForReflection
 public class KojiService {
 
     private static final Long MAX_BREW_WAIT_5_MIN = 5 * 60 * 1000L;

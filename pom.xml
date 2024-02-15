@@ -36,6 +36,7 @@
     </parent>
 
     <modules>
+        <module>native</module>
         <module>core</module>
         <module>cli</module>
         <module>service</module>

@@ -31,9 +31,11 @@ import org.jboss.pnc.build.finder.core.DistributionAnalyzerListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RegisterForReflection
 public class FinderStatus implements DistributionAnalyzerListener, BuildFinderListener {
 
     @JsonIgnore

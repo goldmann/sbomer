@@ -15,28 +15,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.sbomer.cli.feature.sbom.provider;
+package org.jboss.sbomer.n.cli.deployment;
 
-public class KojiProvider {
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 
-    // @Inject
-    // BuildConfig config;
+import org.jboss.jandex.DotName;
 
-    // @Produces
-    // @DefaultBean
-    // public KojiClientSession createSession() throws KojiClientException {
-    // log.debug("Using default Koji ClientSession");
+public class IgnorePackagePredicate implements Predicate<DotName> {
 
-    // URL kojiHubURL = config.getKojiHubURL();
-    // if (kojiHubURL == null) {
-    // throw new KojiClientException("Koji hub URL is not set");
-    // }
-    // log.info("Initializing Koji client session with URL {}", kojiHubURL);
-    // return new KojiClientSession(kojiHubURL);
-    // }
+    private static final List<String> IGNORED_PACKAGES = Arrays
+            .asList("jakarta.crypto.", "jakarta.net.", "jakarta.security.auth.");
 
-    // public void close(@Disposes KojiClientSession session) {
-    // session.close();
-    // }
+    @Override
+    public boolean test(DotName dotName) {
+        String name = dotName.toString();
+        for (String containerPackageName : IGNORED_PACKAGES) {
+            if (name.startsWith(containerPackageName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

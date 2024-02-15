@@ -34,10 +34,12 @@ import org.jboss.pnc.build.finder.core.BuildConfig;
 import org.jboss.pnc.build.finder.core.BuildSystem;
 import org.jboss.pnc.build.finder.core.ChecksumType;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ApplicationScoped
+@RegisterForReflection
 public class BuildFinderConfigProvider {
 
     private static final List<String> DEFAULT_ARCHIVE_EXTENSION = List.of(

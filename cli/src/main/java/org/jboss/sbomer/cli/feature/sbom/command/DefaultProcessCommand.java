@@ -39,6 +39,7 @@ import org.jboss.sbomer.cli.feature.sbom.utils.buildfinder.FinderStatus;
 import org.jboss.sbomer.core.features.sbom.enums.ProcessorType;
 import org.jboss.sbomer.core.features.sbom.utils.SbomUtils;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import picocli.CommandLine.Command;
@@ -49,6 +50,7 @@ import picocli.CommandLine.ParentCommand;
         mixinStandardHelpOptions = true,
         name = "default",
         description = "Process the SBOM with enrichments applied to known CycloneDX fields")
+@RegisterForReflection
 public class DefaultProcessCommand extends AbstractProcessCommand {
 
     @ParentCommand
